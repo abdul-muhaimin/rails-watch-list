@@ -1,0 +1,24 @@
+<div class="container mb-5">
+  <div class="text-center text-black">
+    <h1><%= @list.name %></h1>
+      <button type="button" class="btn btn-dark"><%= link_to 'Bookmark a Movie', new_list_bookmark_path(@list)%>
+      </button>
+      <button type="button" class="btn btn-dark"><%= link_to 'Back to Lists', lists_path(@lists)%>
+      </button>
+  </div>
+</div>
+
+<% @list.movies.each do |movie| %>
+<% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+<div class="card col" display="grid">
+  <img src="<%= movie.poster_url %>" class="img-thumbnail" alt="...">
+  <div class="card-body col">
+    <h5 class="card-title col"><strong><%= movie.title %></strong></h5>
+    <p><strong>Rating:</strong> <%= movie.rating %></p>
+    <p class="card-text"><%= movie.overview %></p>
+    <p><strong>comment:</strong> <%= bookmark.comment %></p>
+    <p class="btn btn-dark"><%= link_to 'delete', bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></p>
+    <% end %>
+  </div>
+</div>
+

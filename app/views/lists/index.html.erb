@@ -1,0 +1,18 @@
+<div class="container mb-5">
+  <div class="text-center text-black">
+    <h1>Movie Watch list</h1>
+
+  <button type="button" class="btn btn-outline-dark"><%= link_to 'Create a movie list', new_list_path%></button>
+  </div>
+</div>
+
+ <div class="card text-center ">
+  <div class="card-header">
+    My Lists
+  </div>
+  <ul class="list-group list-group-item">
+    <% @lists.each do |list| %>
+    <li class="list-group-item list-group-item-dark"><%= link_to list.name, list_path(list)%></li>
+  <% end %>
+  </ul>
+    </div>

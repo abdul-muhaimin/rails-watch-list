@@ -11,3 +11,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.img-thumbnail {
+    padding: 0.25rem;
+    background-color: #F4F4F4;
+    border: 1px solid #dee2e6;
+    border-radius: 2px;
+    max-width: 25%;
+    height: auto;
+  }
