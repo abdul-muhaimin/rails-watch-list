@@ -21,12 +21,6 @@ class ListsController < ApplicationController
       render :new
     end
 
-  def destroy
-    @list = List.new(list_params)
-    @list.destroy
-    redirect_to lists_path(@list)
-  end
-
 
   end
 
